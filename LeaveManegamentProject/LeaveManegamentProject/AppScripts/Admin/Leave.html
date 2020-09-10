@@ -1,0 +1,62 @@
+﻿<div ng-controller="LeaveAddController">
+
+    <div class="panel panel-danger" style="margin-top:10px;">
+
+
+        <div class="panel-heading">
+            <div class="panel-title">
+
+                <div><b>{{Leave.Fname}} {{Leave.Lname}}</b><br /> <h5><b>{{Leave.Designation}}</b></h5></div>
+                <a href="/#/filter/{{Leave.ProjectName}}" class="btn btn-warning btn-xs clearfix pull-right" ng-show="Visible" style="margin-top:-45px;">Project Employees</a>
+                <a href="/#/employee" class="btn btn-warning btn-xs clearfix pull-right" ng-show="IsVisible" style="margin-top:-45px;">Add New Employee</a>
+                <a href="/#/employee/{{Leave.Email}}" class="btn btn-warning btn-xs clearfix pull-right" style="margin-top:-15px;padding:0px 21px 0px 21px;">Leave History</a>
+            </div>
+        </div>
+        <div>
+            <div class="panel-body">
+                <h3 style="margin-top:50px;">Absence Detail</h3><hr />
+                <div ng-model="Leave.Email"></div>
+                <div ng-model="Leave.CurrentBalance"></div>
+                <div style="margin:10px 0px 0px 222px;">
+                    <div class="form-group">
+                        <label><b>Start Date</b></label>
+                        <input type="date"  class="form-control" ng-model="Leave.Date1"  min="{{date1|date:'yyyy-MM-dd'}}" max="{{date2|date:'yyyy-MM-dd'}}"/>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label><b>End Date</b></label>
+                        <input type="date" class="form-control" ng-model="Leave.Date2" min="{{date1|date:'yyyy-MM-dd'}}" max="{{date2|date:'yyyy-MM-dd'}}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Absence Name</b></label>
+                        <select class="form-control" ng-model="Leave.AbsenceType">
+                            <option ng-repeat="b in Absencenames">{{b.AbsenceType}}</option>
+
+                        </select>
+                       
+                    </div>
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>CurrentBalance:</label>
+                            <input type="number" style="width:25%" readonly="readonly" class="form-control" ng-model="Leave.CurrentBalance">Days
+                        </div>
+                    </form>
+                    <br />
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label>Duration:</label>
+                            <input type="number" style="width:25%;margin-left:45px;" readonly="readonly" class="form-control" ng-model="Leave.Days">Days
+                        </div>
+                    </form>
+                </div>
+                
+                <div style="margin-left:15px;">
+                    <input type="button" class="btn btn-primary" ng-click="calculate()" value="Calculate" /><hr/>
+                    <input type="submit" class="btn btn-primary" value="Send" id="ButClick" ng-click="sendmail(Email)" />
+                    <input type="button" class="btn btn-primary" value="Save" id="ButClick" ng-click="Save()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

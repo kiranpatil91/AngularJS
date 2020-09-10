@@ -1,0 +1,35 @@
+﻿<div ng-controller="AdminAddController">
+    <div class="modal-fade">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-bottom:  3px solid gray;">
+                <div class="modal-header" style="background-color: lightgray;margin: 1px 0px 0px 1px;">
+                    <div class="modal-title">
+
+                    </div>
+                </div>
+                <div class="modal-body" style="padding: 40px 15px 55px 15px ;">
+                    <p style="text-align: center;font-size: 25px; ">Log in</p>
+                    <p style="text-align: center;font-size: 15px; color: gray;"><b>Please enter your login details</b></p>
+                    <div style="margin-left:130px;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="Admin.Email" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" required >
+                        </div>
+                        <div class="form-group">
+                            <input type="Password" class="form-control" placeholder="Password" ng-model="Admin.password" />
+                        </div>
+                    </div>
+                    <div style="margin-left: 220px;padding:25px;">
+
+                        <!--<a class="btn btn-primary" href="/#/leave/{{Admin.email}}">Login</a>-->
+                        <button ng-click="Login(Admin)">Login</button>
+                    </div>
+                    <div style="margin-left:220px;"><a href="">Forget Password</a></div>
+                    <div class="modal-footer" style="margin-bottom: -65px;">
+                        <p style="margin-right: 220px; font-size: 12px;">Leave Managment Portal</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leave</title>
+   
+
+
+
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body data-ng-app="app" ng-controller="HeadController">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li style="font-size:20px;margin-left:-105px;"><a>Leave Management Systeam</a></li>
+                    <li><a href="/#/admin">Employee Detail</a></li>
+                    <li><a href="/#/admin/home" ng-show="Visible" ng-click="click()">LogOut</a></li>
+                    <li><a href="/#/leave">Employee</a></li>
+                    <li><a href="/#/absencename">Absencename</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angularjs")
+    @Scripts.Render("~/bundles/angularapp")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

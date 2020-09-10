@@ -1,0 +1,74 @@
+﻿<div ng-controller="AdminController" class="panelmargin" style="width:100%;">
+    <div class="form-group">
+       
+
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                MANAGE Employee Details
+                <a href="/#/admin/new" class="btn btn-warning btn-xs clearfix pull-right" style="font-weight:600">
+                    NEW
+                </a>
+            </h3>
+        </div>
+
+        <div class="panel-body">
+
+            <table class="table table-responsive table-striped  table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>UserId</th>
+                        <th> First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>PassWord</th>
+                        <th>Designation</th>
+                        <th>Project Name</th>
+                        <th>Gender</th>
+                        <th>Role</th>
+                        <th>Alocated Leaves</th>
+                        <th>Current Balance</th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="b in Admins|filter:ProjectName ">
+                        <td>{{startFrom+$index+1}}</td>
+                        <td>{{b.UserId}}</td>
+                        <td>{{b.Fname}}</td>
+                        <td>{{b.Lname}}</td>
+                        <td>{{b.Email}}</td>
+                        <td>{{b.Password}}</td>
+                        <td>{{b.Designation}}</td>
+                        <td>{{b.ProjectName}}</td>
+                        <td>{{b.Gender}}</td>
+                        <td>{{b.Role}}</td>
+                        <td>{{b.AlocatedLeaves}}</td>
+                        <td>{{b.CurrentBalance}}</td>
+                        <td>
+                            <a href="/#/admin/{{b.Email}}" class="btn btn-primary btn-xs">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a class="btn btn-danger btn-xs" ng-click="Delete(b.UserId)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+</div>
+<div ng-controller="AdminAddController">
+    <div class="form-group">
+        <label>Update Leaves</label>
+        <div>
+            <input type="number" ng-model="Admin.TotalLeaveBalance" class="form-control"/>
+            <button ng-click="UpdateLeave(Admin.TotalLeaveBalance) ">Update</button>
+        </div>
+    </div>
+</div>
